@@ -4,9 +4,7 @@ import ContactListItem from './ContactListItem';
 import { useSelector } from 'react-redux';
 
 const visibleContacts = ({ contactsReducer: { items, filter } }) => {
-  return items.filter(({ name }) =>
-    name.toLowerCase().includes(filter.toLowerCase()),
-  );
+  return items.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
 };
 
 const ContactsList = () => {
