@@ -3,8 +3,7 @@ import sprite from '../sprite.svg';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/phonebook/phonebook-operations';
-
-const getCurrentContacts = state => state.contactsReducer.items;
+import { getCurrentContacts } from '../../redux/phonebook/phonebook-selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     currentContactsName.includes(name)
-      ? alert(`${currentContactsName} is alredy in contacts`)
+      ? alert(`${name} is alredy in contacts`)
       : dispatch(addContact(name, number));
 
     setName('');

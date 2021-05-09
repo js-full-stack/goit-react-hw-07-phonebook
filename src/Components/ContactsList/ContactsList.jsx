@@ -1,14 +1,18 @@
 import styles from './ContactsList.module.scss';
 import ContactListItem from './ContactListItem';
+import { fetchContacts } from '../../redux/phonebook/phonebook-operations';
+import { useEffect } from 'react';
 
-import { useSelector } from 'react-redux';
-
-const visibleContacts = ({ contactsReducer: { items, filter } }) => {
-  return items.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()));
-};
+import { useSelector, useDispatch } from 'react-redux';
+import { getVisibleContacts } from '../../redux/phonebook/phonebook-selectors';
 
 const ContactsList = () => {
-  const contacts = useSelector(visibleContacts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, []);
+
+  const contacts = useSelector(getVisibleContacts);
   return (
     contacts.length > 0 && (
       <>

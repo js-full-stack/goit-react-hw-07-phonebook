@@ -2,12 +2,10 @@ import styles from './ContactsList.module.scss';
 import sprite from '../sprite.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/phonebook/phonebook-operations';
-
-const getContactItem = id => state =>
-  state.contactsReducer.items.find(contact => contact.id === id);
+import { getContactItemById } from '../../redux/phonebook/phonebook-selectors';
 
 const ContactListItem = ({ id }) => {
-  const { name, number } = useSelector(getContactItem(id));
+  const { name, number } = useSelector(getContactItemById(id));
   const dispatch = useDispatch();
   const handleDeleteContact = () => {
     dispatch(deleteContact(id));

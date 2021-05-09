@@ -12,7 +12,7 @@ import {
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 
 import contactsReducer from '../redux/phonebook/phonebook-reducer';
-// import logger from 'redux-logger';
+import logger from 'redux-logger';
 // import storage from 'redux-persist/lib/storage';
 
 const middleware = [
