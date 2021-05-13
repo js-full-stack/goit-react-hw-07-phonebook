@@ -1,3 +1,5 @@
-# Создание thunk для http-запросов
+Tests:
 
-- http-запрос делается в actions
+email: Devs@mail.com password: 12345678
+
+email: Dev@mail.com password: 12345678

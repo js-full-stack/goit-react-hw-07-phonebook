@@ -1,16 +1,20 @@
-import ContactForm from './Components/ContactForm';
-import Filter from './Components/Filter/';
-import ContactsList from './Components/ContactsList';
+import Content from './Components/Content';
+import AppBar from './Components/AppBar';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from './redux/auth';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
+
   return (
     <div className="container">
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-
-      <ContactsList />
+      <AppBar />
+      <Content />
     </div>
   );
 }

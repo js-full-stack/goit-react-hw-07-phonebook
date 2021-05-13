@@ -63,7 +63,7 @@ const ContactForm = () => {
       </label>
 
       <button className={styles.button} type="submit">
-        Add contact{' '}
+        Add contact
         <svg className={styles.iconAdd}>
           <use href={`${sprite}#icon-add`}></use>
         </svg>
